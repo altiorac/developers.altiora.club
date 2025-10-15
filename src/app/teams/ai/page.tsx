@@ -1,0 +1,150 @@
+"use client";
+
+import { motion } from "motion/react";
+import type { Variants } from "motion/react";
+import Link from "next/link";
+import Footer from "@/components/footer";
+import TextScroller from "@/components/ui/textscroll";
+import { cn } from "@/lib/utils";
+
+// Re-using the same animation variants from your other pages for consistency
+const containerVariants: Variants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.15,
+			delayChildren: 0.5,
+		},
+	},
+};
+
+const itemVariants: Variants = {
+	hidden: { y: 20, opacity: 0 },
+	visible: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			duration: 0.8,
+			ease: "easeOut",
+		},
+	},
+};
+
+const Section = ({ children }: { children: React.ReactNode }) => (
+	<motion.div variants={itemVariants} className="border-t border-foreground/20 pt-10">
+		{children}
+	</motion.div>
+);
+
+const SectionHeader = ({ children }: { children: React.ReactNode }) => (
+	<h2 className="font-fancy italic text-4xl md:text-5xl font-thin tracking-tighter mb-6">{children}</h2>
+);
+
+export default function AiTeamPage() {
+	return (
+		<div className="w-full min-h-screen bg-background text-foreground pt-40">
+			<main className="container mx-auto max-w-3xl px-6">
+				{/* --- HEADER --- */}
+				<motion.div
+					initial={{ y: -20, opacity: 0 }}
+					animate={{ y: 0, opacity: 1 }}
+					transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+				>
+					<h1 className="font-fancy italic text-6xl md:text-8xl font-thin tracking-tighter mb-4">Architects of Intelligence.</h1>
+					<p className="font-standard text-lg md:text-xl text-foreground/80 max-w-2xl">
+						We are the AI vanguard of the Development Division. Our work exists at the nexus of data, algorithms, and human ambition, crafting intelligent systems that power the future of Altiora.
+					</p>
+				</motion.div>
+
+				{/* --- CONTENT SECTIONS --- */}
+				<motion.div
+					className="mt-24 flex flex-col gap-20"
+					variants={containerVariants}
+					initial="hidden"
+					animate="visible"
+				>
+					{/* --- OUR MANDATE --- */}
+					<Section>
+						<SectionHeader>Our Mandate</SectionHeader>
+						<p className="font-standard text-foreground/80 text-base md:text-lg">
+							Our mission is to pioneer and deploy advanced artificial intelligence to solve complex challenges and unlock unprecedented opportunities. We serve as the central intelligence engine for all divisions, transforming raw data into strategic advantage, automating complex processes, and building the predictive tools that allow our peers to see around corners. We don't just build models; we build the future.
+						</p>
+					</Section>
+
+					{/* --- CORE DISCIPLINES --- */}
+					<Section>
+						<SectionHeader>Core Disciplines</SectionHeader>
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+							<div className="flex flex-col">
+								<h3 className="font-standard tracking-widest text-base mb-2">MACHINE LEARNING R&D</h3>
+								<p className="font-standard text-foreground/70 text-sm md:text-base">
+									Developing and fine-tuning novel algorithms for predictive analytics, natural language processing, and computer vision. This is our lab, where theory becomes reality.
+								</p>
+							</div>
+							<div className="flex flex-col">
+								<h3 className="font-standard tracking-widest text-base mb-2">APPLIED AI SOLUTIONS</h3>
+								<p className="font-standard text-foreground/70 text-sm md:text-base">
+									Integrating intelligent systems into divisional workflows. From algorithmic trading for Finance to generative art for Creatives, we build practical, high-impact tools.
+								</p>
+							</div>
+							<div className="flex flex-col">
+								<h3 className="font-standard tracking-widest text-base mb-2">DATA INFRASTRUCTURE</h3>
+								<p className="font-standard text-foreground/70 text-sm md:text-base">
+									Architecting robust data pipelines and scalable infrastructure. We ensure the seamless flow of high-quality data that is the lifeblood of every intelligent system.
+								</p>
+							</div>
+							<div className="flex flex-col">
+								<h3 className="font-standard tracking-widest text-base mb-2">AI ETHICS & STRATEGY</h3>
+								<p className="font-standard text-foreground/70 text-sm md:text-base">
+									Guiding the responsible implementation of AI. We focus on fairness, transparency, and the long-term strategic implications of our work across the organization.
+								</p>
+							</div>
+						</div>
+					</Section>
+
+					{/* --- OUR ARSENAL --- */}
+					<Section>
+						<SectionHeader>Our Arsenal</SectionHeader>
+						<p className="font-standard text-foreground/80 text-base md:text-lg mb-6">
+							We employ a state-of-the-art toolkit to execute our vision, selecting the best instrument for each unique challenge.
+						</p>
+						<div className="flex flex-wrap gap-x-4 gap-y-2">
+							{["Python", "PyTorch", "TensorFlow", "Scikit-learn", "Hugging Face", "LangChain", "SQL", "Spark", "AWS", "GCP", "Kubernetes"].map((tech) => (
+								<span
+									key={tech}
+									className="font-standard tracking-widest text-sm text-foreground/60"
+								>
+									{tech}
+								</span>
+							))}
+						</div>
+					</Section>
+
+					{/* --- CALL TO ACTION --- */}
+					<motion.div variants={itemVariants} className="pt-10 pb-24">
+						<Link href="/apply" className="focus:outline-none group w-full md:w-auto inline-block">
+							<TextScroller
+								items={[
+									<span className="font-standard text-2xl tracking-widest" key="cta-standard">
+										ENGAGE THE AI DIVISION
+									</span>,
+									<span className="font-fancy italic text-3xl font-thin tracking-tighter" key="cta-fancy">
+										ENGAGE THE AI DIVISION
+									</span>,
+								]}
+								className="h-10"
+								textAlign="left"
+							/>
+							<div className="w-full h-[1px] bg-foreground/30 group-hover:bg-foreground transition-colors duration-300" />
+						</Link>
+						<p className="font-standard text-foreground/60 mt-4 text-sm md:text-base">
+							Have a mission that requires intelligent systems? Submit a dispatch request to our team.
+						</p>
+					</motion.div>
+				</motion.div>
+			</main>
+			<Footer />
+		</div>
+	);
+}
