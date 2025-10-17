@@ -19,7 +19,7 @@
     "drizzle-orm": "^0.44.6",
     "lucide-react": "^0.544.0",
     "motion": "^12.23.22",
-    "motion-plus": "https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=e5c5dd0bff07f6b603d92db17d0fcb1abc6feb7bc6e93d5b81359bd7e9d4e953",
+    "motion-plus": "https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=97998479bf464ccf05140d5627e39c5b870fc380912929e020f9132cc86ac777",
     "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",

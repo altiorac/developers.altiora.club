@@ -39,8 +39,8 @@ importers:
         specifier: ^12.23.22
         version: 12.23.22(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       motion-plus:
-        specifier: https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=e5c5dd0bff07f6b603d92db17d0fcb1abc6feb7bc6e93d5b81359bd7e9d4e953
-        version: https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=e5c5dd0bff07f6b603d92db17d0fcb1abc6feb7bc6e93d5b81359bd7e9d4e953(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=97998479bf464ccf05140d5627e39c5b870fc380912929e020f9132cc86ac777
+        version: https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=97998479bf464ccf05140d5627e39c5b870fc380912929e020f9132cc86ac777(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
         specifier: 15.5.4
         version: 15.5.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -2265,8 +2265,8 @@ packages:
       react-dom:
         optional: true
 
-  motion-plus@https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=e5c5dd0bff07f6b603d92db17d0fcb1abc6feb7bc6e93d5b81359bd7e9d4e953:
-    resolution: {tarball: https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=e5c5dd0bff07f6b603d92db17d0fcb1abc6feb7bc6e93d5b81359bd7e9d4e953}
+  motion-plus@https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=97998479bf464ccf05140d5627e39c5b870fc380912929e020f9132cc86ac777:
+    resolution: {tarball: https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=97998479bf464ccf05140d5627e39c5b870fc380912929e020f9132cc86ac777}
     version: 1.5.4
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
@@ -4852,7 +4852,7 @@ snapshots:
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
 
-  motion-plus@https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=e5c5dd0bff07f6b603d92db17d0fcb1abc6feb7bc6e93d5b81359bd7e9d4e953(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  motion-plus@https://api.motion.dev/registry?package=motion-plus&version=1.5.4&token=97998479bf464ccf05140d5627e39c5b870fc380912929e020f9132cc86ac777(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       motion-plus-dom: 1.5.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       motion-plus-react: 1.5.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
