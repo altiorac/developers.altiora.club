@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import SmoothScroll from "@/components/smooth-scroll";
-import NoFocusGate from "@/components/nofocusgate";
 import Navbar from "@/components/navbar";
 import Script from "next/script";
 import CursorDefaultSettings from "@/components/ui/cursor"

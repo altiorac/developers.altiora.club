@@ -1,12 +1,18 @@
 "use client"
 
-import Image from "next/image";
 import { images } from "@/lib/utils";
 import ImageHover from "@/components/ui/imagehover";
 import CursorBadge from "@/components/ui/cursorbadge";
 import AutoScrollTicker from "@/components/ui/ticker";
+import { StaticImageData } from "next/image"
 
-function TickerImageItem({ item, index }: { item: any; index: number }) {
+interface TickerItem {
+    src: StaticImageData;
+    alt: string;
+    link: string;
+}
+
+function TickerImageItem({ item, index }: { item: TickerItem; index: number }) {
     return (
         <ImageHover 
             link={`/${item.link}`} 

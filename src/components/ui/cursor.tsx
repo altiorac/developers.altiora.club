@@ -29,9 +29,3 @@ const container: React.CSSProperties = {
     color: "#0f1115",
     gap: 50,
 }
-
-const bigger: React.CSSProperties = {
-    fontSize: 28,
-    color: "#0f1115",
-    fontWeight: "bold",
-}

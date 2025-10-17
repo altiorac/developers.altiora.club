@@ -1,5 +1,5 @@
 "use client";
-import { motion, animate, useMotionValue } from "motion/react";
+import { animate, useMotionValue } from "motion/react";
 import { useState, useEffect, useRef, ReactNode } from "react";
 
 // Expanded code snippets with longer lines for different languages
@@ -2512,7 +2512,7 @@ export function CodeBG({ children }: { children: ReactNode }) {
 
 		document.addEventListener("pointermove", handlePointerMove);
 		return () => document.removeEventListener("pointermove", handlePointerMove);
-	}, []);
+	}, [velocityX, velocityY]);
 
 	const handleCharHover = (e: React.MouseEvent<HTMLSpanElement>) => {
 		const element = e.currentTarget;
@@ -2562,48 +2562,4 @@ export function CodeBG({ children }: { children: ReactNode }) {
 			<div className="relative z-10 pointer-events-none">{children}</div>
 		</div>
 	);
-}
-
-// TypeWriter component
-function TypeWriter({ script }: { script: Array<{ text: string; endDelay?: number; backspace?: "character" | "word" | "all" }> }) {
-	const [scriptIndex, setScriptIndex] = useState(0);
-	const [displayText, setDisplayText] = useState("");
-	const [isDeleting, setIsDeleting] = useState(false);
-	const [charIndex, setCharIndex] = useState(0);
-
-	const currentScript = script[scriptIndex];
-
-	useEffect(() => {
-		if (!currentScript) return;
-
-		if (!isDeleting && charIndex < currentScript.text.length) {
-			const timeout = setTimeout(
-				() => {
-					setDisplayText(currentScript.text.slice(0, charIndex + 1));
-					setCharIndex(charIndex + 1);
-				},
-				50 + Math.random() * 50
-			);
-			return () => clearTimeout(timeout);
-		} else if (!isDeleting && charIndex === currentScript.text.length) {
-			const timeout = setTimeout(
-				() => {
-					setIsDeleting(true);
-				},
-				(currentScript.endDelay || 0.8) * 1000
-			);
-			return () => clearTimeout(timeout);
-		} else if (isDeleting && charIndex > 0) {
-			const timeout = setTimeout(() => {
-				setDisplayText(currentScript.text.slice(0, charIndex - 1));
-				setCharIndex(charIndex - 1);
-			}, 30);
-			return () => clearTimeout(timeout);
-		} else if (isDeleting && charIndex === 0) {
-			setIsDeleting(false);
-			setScriptIndex((scriptIndex + 1) % script.length);
-		}
-	}, [charIndex, isDeleting, currentScript, scriptIndex, script]);
-
-	return <>{displayText}</>;
 }

@@ -11,14 +11,14 @@ export const useMediaQuery = (query: string): boolean => {
     const listener = () => setMatches(media.matches);
     try {
         media.addEventListener('change', listener);
-    } catch (e) {
+    } catch {
         media.addListener(listener); // Deprecated but fallback
     }
 
     return () => {
         try {
             media.removeEventListener('change', listener);
-        } catch (e) {
+        } catch {
             media.removeListener(listener); // Deprecated but fallback
         }
     };

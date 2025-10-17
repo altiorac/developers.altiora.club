@@ -1,9 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-import CursorBadge from "@/components/ui/cursorbadge";
 
 import Footer from "@/components/footer";
 
